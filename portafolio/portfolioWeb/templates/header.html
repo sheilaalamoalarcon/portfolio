@@ -1,6 +1,20 @@
-{% block content%}
-<div>
-  <h1>Sheila's Portfolio</h1>
-  <p>header template is working</p>
-</div>
+{% block content%} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="{% static 'header.css' %}" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sheila's Portfolio</title>
+  </head>
+  <div class="header">
+    <h1>Sheila Álamo</h1>
+    <div class'header-icons'>
+      <img src="{% static 'instagram-logo.svg' %}" />
+      <img src="{% static 'artstation-logo.svg' %}" />
+      <img src="{% static 'linkedin-logo.svg' %}" />
+    </div>
+  </div>
+  <a href="/about-me">Here goes the menu options{{item}}</a>
+</html>
 {% endblock %}
