@@ -1,0 +1,32 @@
+{% block content%} {% load static %} 
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="{% static 'header.css' %}" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sheila's Portfolio</title>
+  </head>
+  <div class="header">
+    <h1>Sheila Álamo</h1>
+    <div class'header-icon'>
+      <a>
+        <img src="{% static 'instagram-logo.svg' %}" />
+      </a>
+      <a>
+        <img src="{% static 'artstation-logo.svg' %}" />
+      </a>
+      <a>
+        <img src="{% static 'linkedin-logo.svg' %}" />
+      </a>
+      {% comment %} <a>
+        <img src="{% media 'artstation-logo.svg' %}" />
+      </a> {% endcomment %}
+    </div>
+  </div>
+  <button type='button' class="menu-button">
+    <img src='{% static 'up-icon.svg' %}' alt="up-icon" class='up-icon' />
+
+  </button>
+  <a href="/about-me">Here goes the menu options{{item}}</a>
+</html>
+{% endblock %}
