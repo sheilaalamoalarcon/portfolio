@@ -13,10 +13,10 @@
     <div class='container'>
       {% comment %} Header {% endcomment %}
       <div class="header">
-        <h1>Sheila Álamo</h1>
-        <div class="header-icon">
+        <a href='/'>Sheila Álamo</a>
+        <div class="header-socials">
           {% for socialPath, imagePath in socials %}
-            <a href="{{socialPath}}">
+            <a class="header-socials__icon" href="{{socialPath}}">
               <img src="{% static imagePath %}" alt='socials-icons' />
             </a>
           {% endfor %}
@@ -25,36 +25,39 @@
       {% comment %} Menu {% endcomment %}
       <div class="menu">
         {% for path,name in menu %}
-        <a href={{path}}>{{name}}</a>
+        <a class="menu-element" href={{path}}>{{name}}</a>
         {% endfor %}
       </div>
       {% comment %} About me {% endcomment %}
-      <p>About me</p>
       <div class="about-me">
-        <img src={% static 'Rectangle-2.png' %} alt="about-me-image" />
-        <p class="about-me-text">
-          {{aboutMeText}}
-        </p>
+        <p class="about-me-title">About me</p>
+        <div class="about-me-info">
+          <img src={% static 'extra-images/about-me-image.jpeg' %} alt="about-me-info__image" />
+          <p class="about-me-info__text">
+            {{aboutMeText}}
+          </p>
+        </div>
       </div>
       {% comment %} Artwork images & descriptions {% endcomment %}
       <div class="artwork">
         <p class="artwork-section">Design</p>
         {% for artworkPath, artworkTitle, bigImage, firstSideImage, secondSideImage in artwork %}
         <a href={{artworkPath}} class="artwork-title">{{artworkTitle}}</a>
-        <div class="images">
-          <img class="big-image" src="{% static bigImage %}" alt='big-image'/>
-          <div class='images-column'>
-            <img class="small-image" src="{% static firstSideImage %}" alt='firstSideImage' />
-            <img class="small-image" src="{% static secondSideImage %}" alt='secondSideImage' />
+        <div class="artwork-images">
+          <img class="big-image" src={% static bigImage %} alt='big-image'/>
+          <div class='artwork-images-column'>
+            <img class="small-image" src={% static firstSideImage %} alt='firstSideImage' />
+            <img class="small-image" src={% static secondSideImage %} alt='secondSideImage' />
           </div>
         </div>
         {% endfor %}
       </div>
-  
+      {% comment %} Up-button {% endcomment %}
       <button type="button" class="up-button">
-        <img  class="up-button__image" src='{% static 'up-icon.svg' %}' alt="up-icon" />
+        <img  class="up-button__image" src={% static 'icons/up-icon.svg' %} alt="up-icon" />
       </button>
     </div>
+    {% comment %} Footer {% endcomment %}
     <footer>
       <p class="footer">© 2023 Sheila Álamo</p>
     </footer>
