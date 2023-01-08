@@ -1,0 +1,41 @@
+{% extends "index.html" %} {% load static %} {% load sass_tags %}
+{% block stylesheet %} href={% sass_src 'curriculum.scss' %} {% endblock stylesheet %}
+{% block content %}
+  <div>
+    <div>
+      <h1 class="title">Curriculum</h1>
+      <p>
+        I am a self-taught designer and developer. I have been working in the
+        industry for 3 years. I have worked on a variety of projects, from
+        designing and developing websites to designing and developing mobile
+        applications. I have also worked on a variety of projects, from designing
+        and developing websites to designing and developing mobile applications.
+      </p>
+    </div>
+
+    <div class="skills">
+      <p class="skills-title">Skills</p>
+      <div class="skills-columns">
+        <div class="skills-columns-column">
+          {% for path, name in firstColumns %}
+          <div class="skills-skill">
+            <img class="skill__image" src={% static path %} alt='skill-image' />
+            <p class="skill__name">{{name}}</p>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="skills-columns-column">
+        {% for path, name in secondColumns %}
+          <div class="skills-skill">
+            <img class="skill__image" src={% static path %} alt='skill-image' />
+            <p class="skill__name">{{name}}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>    
+    </div>
+    <div class='experience'>
+      <p>Experience</p>
+      <p>Experience</p>
+  </div>
+{% endblock content %}

@@ -9,7 +9,7 @@ body {
 .container {
   background: white;
   margin: 0.5rem 0.5rem;
-  padding: 1rem;
+  padding: 1rem 1rem 0rem 1rem;
   border-radius: 0.5rem;
   .header {
     position: sticky;
@@ -68,4 +68,5 @@ body {
   background: black;
   text-align: center;
   padding: 2rem;
+  margin: 0rem -1rem -1rem -1rem;
 }

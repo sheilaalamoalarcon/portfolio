@@ -1,31 +1,7 @@
-{% extends "header.html" %} {% block content%} {% load static %} {% load sass_tags %}
-<head>
-  <link rel="stylesheet" href="{% sass_src 'sketchbook.scss' %}"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sheila Álamo Portfolio</title>
-</head>
-<body>
-  <div class="container">
-    <div class="header">
-      <a  href='/'>Sheila Álamo</a>
-      <div class="header-socials">
-        {% for socialPath, imagePath in socials %}
-          <a class="header-socials__icon" href="{{socialPath}}">
-            <img src="{% static imagePath %}" alt='socials-icons' />
-          </a>
-        {% endfor %}
-      </div>
-    </div>
-    {% comment %} Menu {% endcomment %}
-    <div class="menu">
-      {% for path,name in menu %}
-      <a class="menu-element" href={{path}}>{{name}}</a>
-      {% endfor %}
-    </div>
+{% extends "index.html" %} {% load static %} {% load sass_tags %}
+{% block stylesheet %} href={% sass_src 'sketchbook.scss' %} {% endblock stylesheet %}
+{% block content %}
+  <div>
     <div>
       <h1 class="title">Sketchbook</h1>
       <p>
@@ -34,8 +10,5 @@
       <img class='element' src={% static 'Rectangle-2.png' %} alt='sketch-1' />
     </div>
   </div>
-  <footer class="footer">
-    <p >© 2023 Sheila Álamo</p>
-  </footer>
-</body>
-{% endblock %}
+{% endblock content %}
+

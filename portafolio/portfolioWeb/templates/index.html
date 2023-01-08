@@ -1,7 +1,7 @@
-{% block content%} {% load static %} {% load sass_tags %} 
+{% load static %} {% load sass_tags %} 
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="{% sass_src 'header.scss' %}"/>
+    <link rel="stylesheet" {% block stylesheet %} href="{% sass_src 'header.scss' %}" {% endblock stylesheet %}/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class='container'>
-      {% comment %} Header {% endcomment %}
+      {% block header %}
       <div class="header">
         <a href='/'>Sheila Álamo</a>
         <div class="header-socials">
@@ -22,13 +22,13 @@
           {% endfor %}
         </div>
       </div>
-      {% comment %} Menu {% endcomment %}
       <div class="menu">
         {% for path,name in menu %}
         <a class="menu-element" href={{path}}>{{name}}</a>
         {% endfor %}
       </div>
-      {% comment %} About me {% endcomment %}
+      {% endblock header %}
+      {% block content%}
       <div class="about-me">
         <p class="about-me-title">About me</p>
         <div class="about-me-info">
@@ -38,10 +38,9 @@
           </p>
         </div>
       </div>
-      {% comment %} Artwork images & descriptions {% endcomment %}
       <div class="artwork">
-        <p class="artwork-section">Design</p>
-        {% for artworkPath, artworkTitle, bigImage, firstSideImage, secondSideImage in artwork %}
+        <p class="artwork-section">UI-Design</p>
+        {% for artworkPath, artworkTitle, bigImage, firstSideImage, secondSideImage in uiDesign %}
         <a href={{artworkPath}} class="artwork-title">{{artworkTitle}}</a>
         <div class="artwork-images">
           <img class="big-image" src={% static bigImage %} alt='big-image'/>
@@ -52,15 +51,40 @@
         </div>
         {% endfor %}
       </div>
-      {% comment %} Up-button {% endcomment %}
+      <div class="artwork">
+        <p class="artwork-section">Illustrations</p>
+        <p class="artwork-section">Character Design</p>
+        {% for artworkPath, artworkTitle, bigImage, firstSideImage, secondSideImage in characterDesign %}
+        <a href={{artworkPath}} class="artwork-title">{{artworkTitle}}</a>
+        <div class="artwork-images">
+          <img class="big-image" src={% static bigImage %} alt='big-image'/>
+          <div class='artwork-images-column'>
+            <img class="small-image" src={% static firstSideImage %} alt='firstSideImage' />
+            <img class="small-image" src={% static secondSideImage %} alt='secondSideImage' />
+          </div>
+        </div>
+        {% endfor %}
+        <p class="artwork-section">Cocept Design</p>
+        {% for artworkPath, artworkTitle, bigImage, firstSideImage, secondSideImage in conceptDesign %}
+        <a href={{artworkPath}} class="artwork-title">{{artworkTitle}}</a>
+        <div class="artwork-images">
+          <img class="big-image" src={% static bigImage %} alt='big-image'/>
+          <div class='artwork-images-column'>
+            <img class="small-image" src={% static firstSideImage %} alt='firstSideImage' />
+            <img class="small-image" src={% static secondSideImage %} alt='secondSideImage' />
+          </div>
+        </div>
+        {% endfor %}
+      </div>
       <button type="button" class="up-button">
         <img  class="up-button__image" src={% static 'icons/up-icon.svg' %} alt="up-icon" />
       </button>
+      {% endblock content %}
     </div>
-    {% comment %} Footer {% endcomment %}
+    {% block footer %}
     <footer>
       <p class="footer">© 2023 Sheila Álamo</p>
     </footer>
+    {% endblock footer %}
   </body>
 </html>
-{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "index.html" %} {% load static %} {% load sass_tags %}
+{% block stylesheet %} href={% sass_src 'header.scss' %} {% endblock stylesheet %}
+{% block content %}
+  <div>
+    <div>
+      <h1 class="title">Animations</h1>
+      <p>
+        I love to animate things. I have been animating since I was a kid. 
+      </p>
+    </div>
+  </div>
+{% endblock content %}

@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import re
-from django.utils.timezone import datetime
 
 # al the def here will be our pages
 
@@ -38,7 +37,7 @@ def home(request):
             },
         ],
         
-        'artwork': [
+        'uiDesign': [
             {
                 'https://hayile.netlify.app/',
                 'Hayile',
@@ -46,43 +45,59 @@ def home(request):
                 'artwork-images/hayile/hayile-big-image.png',
                 'artwork-images/hayile/hayile-small-image.png'
             },
+            {
+                'https://hayile.netlify.app/',
+                'Naturmode',
+                'artwork-images/naturmode/naturmode-second-small-image.png',
+                'artwork-images/naturmode/naturmode-big-image.png',
+                'artwork-images/naturmode/naturmode-small-image.png'
+            },
+        ],
+        'characterDesign': [
+            {
+                'https://hayile.netlify.app/',
+                'Hayile',
+                'artwork-images/smile/smile-second-small-image.png',
+                'artwork-images/smile/smile-big-image.png',
+                'artwork-images/smile/smile-small-image.png'
+            },
+        ],
+        'conceptDesign': [
+            {
+                'https://hayile.netlify.app/',
+                'Hayile',
+                'artwork-images/underworld/underworld-second-small-image.png',
+                'artwork-images/underworld/underworld-big-image.png',
+                'artwork-images/underworld/underworld-small-image.png'
+            },
         ],
     }
-    return render(request, 'header.html', context)
+    return render(request, 'index.html', context)
 
 
-def AboutMe(request):
+def Animations(request):
 
-    return render(request, 'sketchbook.html')
+    return render(request, 'animations.html', )
 
 
 def Curriculum(request):
-
-    return render(request, 'sketchbook.html')
-
-
-def SketchBook(request):
     
     context = {
-        'socials': [
-            {
-                'icons/instagram-logo.svg',
-                'https://www.instagram.com/sheila_ilustraciones', 
-            },
-            {
-                'icons/artstation-logo.svg',
-                'https://www.artstation.com/sheila-alamo-ilustraciones',
-            },
-            {
-                'icons/linkedin-logo.svg',
-                'https://www.linkedin.com/in/sheila-%C3%A1lamo-alarc%C3%B3n-ilustraciones/',
-            },
-        ],
-        'menu': [
-            {
-                'Curriculum',
-                '/curriculum',
-            },
+    'socials': [
+        {
+            'icons/instagram-logo.svg',
+            'https://www.instagram.com/sheila_ilustraciones', 
+        },
+        {
+            'icons/artstation-logo.svg',
+            'https://www.artstation.com/sheila-alamo-ilustraciones',
+        },
+        {
+            'icons/linkedin-logo.svg',
+            'https://www.linkedin.com/in/sheila-%C3%A1lamo-alarc%C3%B3n-ilustraciones/',
+        },
+    ],
+    'menu': [
             {
                 '/sketchbook', 
                 'SketchBook',
@@ -92,9 +107,75 @@ def SketchBook(request):
                 'Animations',
             },
         ],
+    'firstColumns': [
+             {
+                'icons/skills/html.svg',
+                'HTML',
+            },
+            {
+                'icons/skills/css.svg',
+                'CSS',
+            },
+            {
+                'icons/skills/javascript.svg',
+                'JavaScript',
+            },
+            {
+                'icons/skills/typescript.svg',
+                'Typescript',
+            },
+            {
+                'icons/skills/react.svg',
+                'InDesign',
+            },
+            {
+                'icons/skills/illustrator.svg',
+                'Illustrator',
+            },
+            {
+                'icons/skills/photoshop.svg',
+                'Photoshop',
+            },
+        ],
+        
+    'secondColumns': [
+            {
+                'icons/skills/after-effects.svg',
+                'After Effects',
+            },
+            {
+                'icons/skills/animate.svg',
+                'animate',
+            },
+            {
+                'icons/skills/xd.svg',
+                'XD',
+            },
+            {
+                'icons/skills/figma.svg',
+                'Figma',
+            },
+            {
+                'icons/skills/zbrush.svg',
+                'zbrush',
+            },
+            {
+                'icons/skills/blender.svg',
+                'blender',
+            },
+            {
+                'icons/skills/unity.svg',
+                'unity',
+            }
+        ],
     }
 
-    return render(request, 'sketchbook.html', context)
+    return render(request, 'curriculum.html', context)
+
+
+def SketchBook(request):
+    
+    return render(request, 'sketchbook.html')
 
 
 # Create your views here.
