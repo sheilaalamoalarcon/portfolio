@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  padding: 1;
+  font-family: "Urbanist", sans-serif;
+  background: black;
+}
+.container {
+  background: white;
+  margin: 0.5rem 0.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.header {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  font-size: 0.5rem;
+  &-icon {
+    display: inline-flex;
+    gap: 1rem;
+    
+    a {
+      :active {
+        filter: invert(23%) sepia(80%) saturate(3661%) hue-rotate(345deg)
+          brightness(91%) contrast(101%);
+      }
+      :hover {
+        cursor: pointer;
+        filter: invert(23%) sepia(80%) saturate(3661%) hue-rotate(345deg)
+          brightness(91%) contrast(101%);
+      }
+    }
+  }
+}
+.menu {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 0rem 1rem;
+  justify-content: space-between;
+}
+.up-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  position: fixed;
+  left: 80%;
+  top: 92%;
+
+  &__image {
+    cursor: pointer;
+    filter: invert(37%) sepia(65%) saturate(1624%) hue-rotate(147deg) brightness(101%) contrast(101%);
+    :active {
+      filter: invert(23%) sepia(80%) saturate(3661%) hue-rotate(345deg)
+        brightness(91%) contrast(101%);
+    }
+    :hover {
+      cursor: pointer;
+      filter: invert(23%) sepia(80%) saturate(3661%) hue-rotate(345deg)
+        brightness(91%) contrast(101%);
+    }
+  }
+}
+
+.big-image {
+  max-width: 67vw;
+}
+.small-image {
+  max-width: 30vw;
+}
+
+.about-me {
+  display: flex;
+  gap: 1rem;
+  &-text {
+    font-size: 10px;
+    width: 50%;
+    text-align: justify;
+  }
+}
+
+.artwork {
+  &-section {
+    font-size:14px;
+    font-weight: 800;
+    :hover {
+      color: #ea2127;
+    }
+    :focus {
+      color: #ea2127;
+    }
+  }
+
+  &-title {
+    color: #01a99a;
+    font-weight: 600;
+    font-size: 1rem;
+    :hover {
+      cursor: pointer;
+      color: #ea2127;
+      font-weight: 600;
+    }
+    :focus {
+      cursor: pointer;
+      color: #ea2127;
+      font-weight: 600;
+    }
+
+    .images {
+      display: flex;
+      
+      &-column {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
+.footer {
+  color: white;
+  background: black;
+  text-align: center;
+  padding: 2rem;
+  margin: 0rem;
+}

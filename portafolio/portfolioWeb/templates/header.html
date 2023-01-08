@@ -1,32 +1,63 @@
-{% block content%} {% load static %} 
+{% block content%} {% load static %} {% load sass_tags %} 
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="{% static 'header.css' %}" />
+    <link rel="stylesheet" href="{% sass_src 'header.scss' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sheila's Portfolio</title>
+    <title>Sheila Álamo Portfolio</title>
   </head>
-  <div class="header">
-    <h1>Sheila Álamo</h1>
-    <div class'header-icon'>
-      <a>
-        <img src="{% static 'instagram-logo.svg' %}" />
-      </a>
-      <a>
-        <img src="{% static 'artstation-logo.svg' %}" />
-      </a>
-      <a>
-        <img src="{% static 'linkedin-logo.svg' %}" />
-      </a>
-      {% comment %} <a>
-        <img src="{% media 'artstation-logo.svg' %}" />
-      </a> {% endcomment %}
+  <body>
+    <div class='container'>
+      {% comment %} Header {% endcomment %}
+      <div class="header">
+        <h1>Sheila Álamo</h1>
+        <div class="header-icon">
+          {% for socialPath, imagePath in socials %}
+            <a href="{{socialPath}}">
+              <img src="{% static imagePath %}" alt='socials-icons' />
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% comment %} Menu {% endcomment %}
+      <div class="menu">
+        {% for path,name in menu %}
+        <a href={{path}}>{{name}}</a>
+        {% endfor %}
+      </div>
+      {% comment %} About me {% endcomment %}
+      <p>About me</p>
+      <div class="about-me">
+        <img src={% static 'Rectangle-2.png' %} alt="about-me-image" />
+        <p class="about-me-text">
+          {{aboutMeText}}
+        </p>
+      </div>
+      {% comment %} Artwork images & descriptions {% endcomment %}
+      <div class="artwork">
+        <p class="artwork-section">Design</p>
+        {% for artworkPath, artworkTitle, bigImage, firstSideImage, secondSideImage in artwork %}
+        <a href={{artworkPath}} class="artwork-title">{{artworkTitle}}</a>
+        <div class="images">
+          <img class="big-image" src="{% static bigImage %}" alt='big-image'/>
+          <div class='images-column'>
+            <img class="small-image" src="{% static firstSideImage %}" alt='firstSideImage' />
+            <img class="small-image" src="{% static secondSideImage %}" alt='secondSideImage' />
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+  
+      <button type="button" class="up-button">
+        <img  class="up-button__image" src='{% static 'up-icon.svg' %}' alt="up-icon" />
+      </button>
     </div>
-  </div>
-  <button type='button' class="menu-button">
-    <img src='{% static 'up-icon.svg' %}' alt="up-icon" class='up-icon' />
-
-  </button>
-  <a href="/about-me">Here goes the menu options{{item}}</a>
+    <footer>
+      <p class="footer">© 2023 Sheila Álamo</p>
+    </footer>
+  </body>
 </html>
 {% endblock %}
