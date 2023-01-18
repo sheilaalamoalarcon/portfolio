@@ -1,7 +1,8 @@
 {% load static %} {% load sass_tags %} 
 <html lang="en">
   <head>
-    <link rel="stylesheet" {% block stylesheet %} href="{% sass_src 'header.scss' %}" {% endblock stylesheet %}/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link rel="stylesheet" {% block stylesheet %} href="{% sass_src 'base.scss' %}" {% endblock stylesheet %}/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -15,11 +16,11 @@
       <div class="header">
         <a href='/'>Sheila Álamo</a>
         <div class="header-socials">
-          {% for socialPath, imagePath in socials %}
-            <a class="header-socials__icon" href="{{socialPath}}">
-              <img src="{% static imagePath %}" alt='socials-icons' />
+          {% for link, imageDir in socials %}
+            <a class="header-socials__icon"  href={{link}}>
+              <img src={% static imageDir %} alt='socials-icons' />
+              {% endfor %}
             </a>
-          {% endfor %}
         </div>
       </div>
       <div class="menu">
@@ -40,13 +41,13 @@
       </div>
       <div class="artwork">
         <p class="artwork-section">UI-Design</p>
-        {% for artworkPath, artworkTitle, bigImage, firstSideImage, secondSideImage in uiDesign %}
-        <a href={{artworkPath}} class="artwork-title">{{artworkTitle}}</a>
+        {% for path, title, firstImg, secondImg, thirdImg in uiDesign %}
+        <a href={{path}} class="artwork-title">{{title}}</a>
         <div class="artwork-images">
-          <img class="big-image" src={% static bigImage %} alt='big-image'/>
+          <img class="big-image" src={% static firstImg %} alt='firstImg'/>
           <div class='artwork-images-column'>
-            <img class="small-image" src={% static firstSideImage %} alt='firstSideImage' />
-            <img class="small-image" src={% static secondSideImage %} alt='secondSideImage' />
+            <img class="small-image" src={% static secondImg %} alt='secondImg' />
+            <img class="small-image" src={% static thirdImg %} alt='thirdImg' />
           </div>
         </div>
         {% endfor %}
@@ -54,24 +55,24 @@
       <div class="artwork">
         <p class="artwork-section">Illustrations</p>
         <p class="artwork-section">Character Design</p>
-        {% for artworkPath, artworkTitle, bigImage, firstSideImage, secondSideImage in characterDesign %}
-        <a href={{artworkPath}} class="artwork-title">{{artworkTitle}}</a>
+        {% for path, title, firstImg, secondImg, thirdImg in characterDesign %}
+        <a href={{path}} class="artwork-title">{{title}}</a>
         <div class="artwork-images">
-          <img class="big-image" src={% static bigImage %} alt='big-image'/>
+          <img class="big-image" src={% static firstImg %} alt='big-image'/>
           <div class='artwork-images-column'>
-            <img class="small-image" src={% static firstSideImage %} alt='firstSideImage' />
-            <img class="small-image" src={% static secondSideImage %} alt='secondSideImage' />
+            <img class="small-image" src={% static secondImg %} alt='secondImg' />
+            <img class="small-image" src={% static thirdImg %} alt='thirdImg' />
           </div>
         </div>
         {% endfor %}
         <p class="artwork-section">Cocept Design</p>
-        {% for artworkPath, artworkTitle, bigImage, firstSideImage, secondSideImage in conceptDesign %}
-        <a href={{artworkPath}} class="artwork-title">{{artworkTitle}}</a>
+        {% for path, title, firstImg, secondImg, thirdImg in conceptDesign %}
+        <a href={{path}} class="artwork-title">{{title}}</a>
         <div class="artwork-images">
-          <img class="big-image" src={% static bigImage %} alt='big-image'/>
+          <img class="big-image" src={% static firstImg %} alt='big-image'/>
           <div class='artwork-images-column'>
-            <img class="small-image" src={% static firstSideImage %} alt='firstSideImage' />
-            <img class="small-image" src={% static secondSideImage %} alt='secondSideImage' />
+            <img class="small-image" src={% static secondImg %} alt='secondImg' />
+            <img class="small-image" src={% static thirdImg %} alt='thirdImg' />
           </div>
         </div>
         {% endfor %}
@@ -79,8 +80,8 @@
       <button type="button" class="up-button">
         <img  class="up-button__image" src={% static 'icons/up-icon.svg' %} alt="up-icon" />
       </button>
-      {% endblock content %}
     </div>
+    {% endblock content %}
     {% block footer %}
     <footer>
       <p class="footer">© 2023 Sheila Álamo</p>

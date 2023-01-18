@@ -1,7 +1,9 @@
+@import 'variables.scss'; 
+
 body {
   margin: 0;
   font-family: "Urbanist", sans-serif;
-  background: black;
+  background: $background-color;
   overflow-y: scroll;
 }
 
@@ -47,7 +49,7 @@ body {
     justify-content: space-between;
     &-element {
       text-decoration: none;
-      color: black;
+      color: $background-color;
       font-size: 0.5rem;
       font-weight: 600;
       &:hover {
@@ -199,7 +201,7 @@ body {
 
 .footer {
   color: white;
-  background: black;
+  background: $background-color;
   text-align: center;
   padding: 2rem;
 }
