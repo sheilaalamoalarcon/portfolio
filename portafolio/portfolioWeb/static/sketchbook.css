@@ -52,3 +52,11 @@ body {
   text-align: center;
   padding: 2rem;
   margin: 0rem -1rem -1rem -1rem; }
+
+.sketchbook {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem; }
+  /* .sketchbook .title {}
+  .sketchbook .image-grid {} */

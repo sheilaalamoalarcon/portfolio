@@ -29,7 +29,7 @@ body {
         filter: invert(23%) sepia(80%) saturate(3661%) hue-rotate(345deg) brightness(91%) contrast(101%); }
       .container .header-socials__icon:focus {
         cursor: pointer;
-        filter: invert(23%) sepia(80%) saturate(3661%) hue-rotate(345deg) brightness(91%) contrast(101%); }
+        filter: invert(75%) sepia(7%) saturate(6677%) hue-rotate(67deg) brightness(118%) contrast(101%); }
   .container .menu {
     display: flex;
     align-items: center;
@@ -54,7 +54,7 @@ body {
     top: 92%; }
     .container .up-button__image {
       cursor: pointer;
-      filter: invert(37%) sepia(65%) saturate(1624%) hue-rotate(147deg) brightness(101%) contrast(101%); }
+      filter: invert(75%) sepia(7%) saturate(6677%) hue-rotate(67deg) brightness(118%) contrast(101%); }
       .container .up-button__image:hover {
         cursor: pointer;
         filter: invert(23%) sepia(80%) saturate(3661%) hue-rotate(345deg) brightness(91%) contrast(101%); }
@@ -81,16 +81,14 @@ body {
     font-size: 14px;
     font-weight: 900; }
   .container .artwork-title {
-    color: #01a99a;
-    font-weight: 600;
-    font-size: 1rem;
+    color: #00B608;
     text-decoration: none; }
     .container .artwork-title:hover {
-      color: #ea2127;
+      color: #9A2CB8;
       text-decoration: none; }
       .container .artwork-title:hover::after {
         content: " Clic para ver más";
-        color: #ea2127;
+        color: #00B608;
         margin-right: 0.5rem; }
   .container .artwork-images {
     display: flex;

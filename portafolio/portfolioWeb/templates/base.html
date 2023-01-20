@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href={% static 'favicon.svg' %}  type="image/svg+xml">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sheila Álamo Portfolio</title>
@@ -14,19 +15,26 @@
     <div class='container'>
       {% block header %}
       <div class="header">
-        <a href='/'>Sheila Álamo</a>
+        <a href='/'>
+          <img class="header-logo" src={% static 'icons/logo-sheila.svg' %} alt="logo" />
+        </a>
         <div class="header-socials">
-          {% for link, imageDir in socials %}
-            <a class="header-socials__icon"  href={{link}}>
-              <img src={% static imageDir %} alt='socials-icons' />
-              {% endfor %}
+          {% regroup socials by link as socials_link %}
+          {% for social in socials %}
+            <a class="header-socials__icon"  href={{social.link}}>
+              <img src={% static social.imageDir %} alt='socials-icons' />
+          {% endfor %}
             </a>
         </div>
+        
       </div>
-      <div class="menu">
-        {% for path,name in menu %}
-        <a class="menu-element" href={{path}}>{{name}}</a>
+      <div class="header-pages">
+        {% regroup pages by link as pages_list %}
+        {% for page in pages %}
+          <a class="header-pages__icon"  href={{page.link}}>
+            {{page.name}}
         {% endfor %}
+          </a>
       </div>
       {% endblock header %}
       {% block content%}
@@ -35,44 +43,26 @@
         <div class="about-me-info">
           <img src={% static 'extra-images/about-me-image.jpeg' %} alt="about-me-info__image" />
           <p class="about-me-info__text">
-            {{aboutMeText}}
+            Mi nombre es Sheila Álamo, bienvenidos/as a mi portafolio web, 
+            aquí encontrarás mis trabajos más recientes. Soy una persona 
+            altamente creativa y con mucha energía, aunque a veces puedo ser 
+            algo tímida. Me gradué como técnico de imagen especializado en la
+            ilustración en la EADSGC, más tarde hice los siguientes cursos 
+            en la SPEGC: “Diseño UI/UX”, ”Programación Full-Stack”,
+            ”Especialización en ML” 
           </p>
         </div>
       </div>
       <div class="artwork">
         <p class="artwork-section">UI-Design</p>
-        {% for path, title, firstImg, secondImg, thirdImg in uiDesign %}
-        <a href={{path}} class="artwork-title">{{title}}</a>
+        {% regroup artworks by title as artworks_list %}
+        {% for artwork in artworks %}
+        <a href={{artwork.path}} class="artwork-title">{{artwork.title}}</a>
         <div class="artwork-images">
-          <img class="big-image" src={% static firstImg %} alt='firstImg'/>
+          <img class="big-image" src={% static artwork.firstImg %} alt='firstImg'/>
           <div class='artwork-images-column'>
-            <img class="small-image" src={% static secondImg %} alt='secondImg' />
-            <img class="small-image" src={% static thirdImg %} alt='thirdImg' />
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-      <div class="artwork">
-        <p class="artwork-section">Illustrations</p>
-        <p class="artwork-section">Character Design</p>
-        {% for path, title, firstImg, secondImg, thirdImg in characterDesign %}
-        <a href={{path}} class="artwork-title">{{title}}</a>
-        <div class="artwork-images">
-          <img class="big-image" src={% static firstImg %} alt='big-image'/>
-          <div class='artwork-images-column'>
-            <img class="small-image" src={% static secondImg %} alt='secondImg' />
-            <img class="small-image" src={% static thirdImg %} alt='thirdImg' />
-          </div>
-        </div>
-        {% endfor %}
-        <p class="artwork-section">Cocept Design</p>
-        {% for path, title, firstImg, secondImg, thirdImg in conceptDesign %}
-        <a href={{path}} class="artwork-title">{{title}}</a>
-        <div class="artwork-images">
-          <img class="big-image" src={% static firstImg %} alt='big-image'/>
-          <div class='artwork-images-column'>
-            <img class="small-image" src={% static secondImg %} alt='secondImg' />
-            <img class="small-image" src={% static thirdImg %} alt='thirdImg' />
+            <img class="small-image" src={% static artwork.secondImg %} alt='secondImg' />
+            <img class="small-image" src={% static artwork.thirdImg %} alt='thirdImg' />
           </div>
         </div>
         {% endfor %}

@@ -12,31 +12,12 @@
       and developing websites to designing and developing mobile applications.
     </p>
   </div>
-
   <div class="skills">
+    {% regroup skills by name as skills_list %}
     <p class="skills-title">Skills</p>
-    <div class="skills-columns">
-      <div class="skills-columns-column">
-        {% for path, name in firstColumns %}
-        <div class="skills-skill">
-          <img class="skill__image" src={% static path %} alt="skill-image" />
-          <p class="skill__name">{{name}}</p>
-        </div>
-        {% endfor %}
-      </div>
-      <div class="skills-columns-column">
-        {% for path, name in secondColumns %}
-        <div class="skills-skill">
-          <img class="skill__image" src={% static path %} alt="skill-image" />
-          <p class="skill__name">{{name}}</p>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-  <div class="experience">
-    <p>Experience</p>
-    <p>Experience</p>
-  </div>
+    {% for skill in skills %}
+    <p class="skill__name">{{skill.name}}</p>
+    <img class="skill__image" src={% static skill.imageDir %} alt="icon-{{skill}}"/>
+    {% endfor %}
 </div>
   {% endblock content %}
