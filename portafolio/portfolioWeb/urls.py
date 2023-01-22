@@ -3,7 +3,7 @@ from portfolioWeb import views
 
 urlpatterns = [
     path("", views.home, name="home"),
-    path("about-me", views.AboutMe, name="about-me"),
+    path("animations", views.Animations, name="animations"),
     path("curriculum", views.Curriculum, name="curriculum"),
     path("sketchbook", views.SketchBook, name="sketchbook"),
 
