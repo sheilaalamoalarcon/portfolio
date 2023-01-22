@@ -95,7 +95,7 @@ a {
   display: inline-flex;
   color: #00b608;
   text-decoration: none;
-  margin: 1rem;
+  margin: 1rem 0rem;
 }
 .artwork-name:hover {
   color: #9a2cb8;

@@ -37,7 +37,7 @@
       {% endblock header %}
       {% block content%}
 
-      <h1 class='title'> Mis trabajos </h1>
+      <h1 class='title'> My Works </h1>
       <div>
         <p class="title">UI-Design</p>
         {% regroup artworks by title as artworks_list %}
@@ -54,15 +54,10 @@
         </div>
         {% endfor %}
       </div>
-      <button type="button" class="up-button">
+      <button type="button" onclick='upButton' class="up-button">
         <img  class="icon" src={% static 'icons/up-icon.svg' %} alt="up-icon" />
       </button>
     </div>
     {% endblock content %}
-    {% block footer %}
-    <footer>
-      <p class="footer">© 2023 Sheila Álamo</p>
-    </footer>
-    {% endblock footer %}
   </body>
 </html>

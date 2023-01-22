@@ -32,7 +32,7 @@ def Animations(request):
             ],
         'pages': [
                 {'link': '/sketchbook', 'name': 'Sketchbook'},
-                {'link': '/curriculum', 'name': 'curriculum'},
+                {'link': '/curriculum', 'name': 'Curriculum'},
             ],
     }
     
