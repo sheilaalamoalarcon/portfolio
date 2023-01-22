@@ -1,12 +1,11 @@
-{% load static %} {% load sass_tags %} 
+{% load static %}
 <html lang="en">
   <head>
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
-    <link rel="stylesheet" {% block stylesheet %} href="{% sass_src 'base.scss' %}" {% endblock stylesheet %}/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'icons/favicon.svg' %}">
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="icon" href={% static 'favicon.svg' %}  type="image/svg+xml">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sheila Álamo Portfolio</title>
@@ -15,60 +14,48 @@
     <div class='container'>
       {% block header %}
       <div class="header">
-        <a href='/'>
-          <img class="header-logo" src={% static 'icons/logo-sheila.svg' %} alt="logo" />
-        </a>
-        <div class="header-socials">
-          {% regroup socials by link as socials_link %}
-          {% for social in socials %}
-            <a class="header-socials__icon"  href={{social.link}}>
-              <img src={% static social.imageDir %} alt='socials-icons' />
-          {% endfor %}
-            </a>
-        </div>
-        
+          <a href='/'>
+            <img src={% static 'icons/logo-sheila.svg' %} alt="logo" />
+          </a>
+          <div class="socials">
+            {% regroup socials by link as socials_link %}
+            {% for social in socials %}
+              <a href={{social.link}}>
+                <img class="icon" src={% static social.imageDir %} alt='socials-icons' />
+            {% endfor %}
+              </a>
+          </div>
       </div>
-      <div class="header-pages">
+      <div class="pages">
         {% regroup pages by link as pages_list %}
         {% for page in pages %}
-          <a class="header-pages__icon"  href={{page.link}}>
+          <a class="icon"  href={{page.link}}>
             {{page.name}}
         {% endfor %}
           </a>
       </div>
       {% endblock header %}
       {% block content%}
-      <div class="about-me">
-        <p class="about-me-title">About me</p>
-        <div class="about-me-info">
-          <img src={% static 'extra-images/about-me-image.jpeg' %} alt="about-me-info__image" />
-          <p class="about-me-info__text">
-            Mi nombre es Sheila Álamo, bienvenidos/as a mi portafolio web, 
-            aquí encontrarás mis trabajos más recientes. Soy una persona 
-            altamente creativa y con mucha energía, aunque a veces puedo ser 
-            algo tímida. Me gradué como técnico de imagen especializado en la
-            ilustración en la EADSGC, más tarde hice los siguientes cursos 
-            en la SPEGC: “Diseño UI/UX”, ”Programación Full-Stack”,
-            ”Especialización en ML” 
-          </p>
-        </div>
-      </div>
-      <div class="artwork">
-        <p class="artwork-section">UI-Design</p>
+
+      <h1 class='title'> Mis trabajos </h1>
+      <div>
+        <p class="title">UI-Design</p>
         {% regroup artworks by title as artworks_list %}
         {% for artwork in artworks %}
-        <a href={{artwork.path}} class="artwork-title">{{artwork.title}}</a>
-        <div class="artwork-images">
-          <img class="big-image" src={% static artwork.firstImg %} alt='firstImg'/>
-          <div class='artwork-images-column'>
-            <img class="small-image" src={% static artwork.secondImg %} alt='secondImg' />
-            <img class="small-image" src={% static artwork.thirdImg %} alt='thirdImg' />
+        <div class='artwork'>
+          <a href={{artwork.path}} class="artwork-name">{{artwork.title}}</a>
+          <div class="artwork-images">
+            <img class="big-image" src={% static artwork.firstImg %} alt='firstImg'/>
+            <div class='artwork-images-column'>
+              <img class="small-image" src={% static artwork.secondImg %} alt='secondImg' />
+              <img class="small-image" src={% static artwork.thirdImg %} alt='thirdImg' />
+            </div>
           </div>
         </div>
         {% endfor %}
       </div>
       <button type="button" class="up-button">
-        <img  class="up-button__image" src={% static 'icons/up-icon.svg' %} alt="up-icon" />
+        <img  class="icon" src={% static 'icons/up-icon.svg' %} alt="up-icon" />
       </button>
     </div>
     {% endblock content %}

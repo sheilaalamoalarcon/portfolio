@@ -1,19 +1,20 @@
 {% extends "base.html" %} {% load static %} {% load sass_tags %}
-{% block stylesheet %} href={% sass_src 'sketchbook.scss' %} {% endblock stylesheet %}
 {% block content %}
   <div>
-    <div class="sketchbook">
-      <h1 class="sketchbook__title">Sketchbook</h1>
+    <div>
+      <h1 class="title">Sketchbook</h1>
       <p>
         Here you can find some of my sketches and drawings. I hope you enjoy them!
       </p>
-      <div class="sketchbook__image-grid">
     </div>
-    {% regroup sketches by name as sketches_list %}
-    {% for sketch in sketches %}
-      <p class="header-sketches__icon"> {{sketch.title}} </p>
-        <img src={% static sketch.imageDir %} alt=`image-{{sketch.title}}` />
-    {% endfor %}
-  </div>
+    <div class="sketchbook">
+      {% regroup sketches by name as sketches_list %}
+      {% for sketch in sketches %}
+      <button class="sketch">
+        <p class="sketch-title"> {{sketch.title}} </p>
+        <img class="sketchbook-img" src={% static sketch.imageDir %} alt=`image-{{sketch.title}}` />
+      </button>
+      {% endfor %}
+    </div> 
 {% endblock content %}
 

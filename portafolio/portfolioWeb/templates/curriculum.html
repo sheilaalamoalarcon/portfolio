@@ -1,23 +1,30 @@
-{% extends "base.html" %} {% load static %} {% load sass_tags %} 
-{% block stylesheet %} href={% sass_src 'curriculum.scss' %} {% endblock stylesheet %} 
+{% extends "base.html" %} {% load static %}
 {% block content %}
 <div>
-  <div>
-    <h1 class="title">Curriculum</h1>
-    <p>
-      I am a self-taught designer and developer. I have been working in the
-      industry for 3 years. I have worked on a variety of projects, from
-      designing and developing websites to designing and developing mobile
-      applications. I have also worked on a variety of projects, from designing
-      and developing websites to designing and developing mobile applications.
-    </p>
+  <div class="about-me">
+    <h1 class='title'>About me</h1>
+    <div class="about-me__info">
+      <img src={% static 'extra-images/about-me-image.jpeg' %} alt="about-me-info__image" />
+      <p class="about-me-info__text">
+        Mi nombre es Sheila Álamo, bienvenidos/as a mi portafolio web, 
+        aquí encontrarás mis trabajos más recientes. Soy una persona 
+        altamente creativa y con mucha energía, aunque a veces puedo ser 
+        algo tímida. Me gradué como técnico de imagen especializado en la
+        ilustración en la EADSGC, más tarde hice los siguientes cursos 
+        en la SPEGC: “Diseño UI/UX”, ”Programación Full-Stack”,
+        ”Especialización en ML” 
+      </p>
+    </div>
   </div>
+  <p class="title">Skills</p>
   <div class="skills">
     {% regroup skills by name as skills_list %}
-    <p class="skills-title">Skills</p>
     {% for skill in skills %}
-    <p class="skill__name">{{skill.name}}</p>
-    <img class="skill__image" src={% static skill.imageDir %} alt="icon-{{skill}}"/>
+    <div class="skills-element">
+      <p class="skills-name">{{skill.name}}</p>
+      <img class="skills-img" src={% static skill.imageDir %} alt="icon-{{skill}}"/>
+      <p class="skills-rating">{{skill.rating}}</p>
+    </div>  
     {% endfor %}
 </div>
   {% endblock content %}
