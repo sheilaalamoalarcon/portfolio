@@ -70,7 +70,6 @@ def Curriculum(request):
 
     return render(request, 'curriculum.html', context)
 
-
 def SketchBook(request):
     context = {
         'socials': [
@@ -98,5 +97,3 @@ def SketchBook(request):
     
     return render(request, 'sketchbook.html', context)
 
-
-# Create your views here.

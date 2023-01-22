@@ -13,8 +13,8 @@
   <body>
     <div class='container'>
       {% block header %}
-      <div class="header">
-          <a href='/'>
+      <div class="header" id='top'>
+        <a href='/'>
             <img src={% static 'icons/logo-sheila.svg' %} alt="logo" />
           </a>
           <div class="socials">
@@ -33,8 +33,8 @@
             {{page.name}}
         {% endfor %}
           </a>
-      </div>
-      {% endblock header %}
+        </div>
+        {% endblock header %}
       {% block content%}
 
       <h1 class='title'> My Works </h1>
@@ -54,10 +54,11 @@
         </div>
         {% endfor %}
       </div>
-      <button type="button" onclick='upButton' class="up-button">
-        <img  class="icon" src={% static 'icons/up-icon.svg' %} alt="up-icon" />
-      </button>
     </div>
     {% endblock content %}
+    <script src={% static 'scripts/index.js' %}/></script>
+    <button type="button" onClick='goUp' class="up-button">
+      <img  class="icon" src={% static 'icons/up-icon.svg' %} alt="up-icon" />
+    </button>
   </body>
 </html>
