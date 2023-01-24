@@ -1,9 +1,15 @@
 {% extends "base.html" %} {% load static %}
 {% block content %}
 <div>
-  <div>
-    <h1 class="title">Animations</h1>
-    <p>I love to animate things. I have been animating since I was a kid.</p>
+  <h1 class="title">Animations</h1>
+  <div class="animations">
+    {% regroup animations by name as animations_list %}
+    {% for animation in animations %}
+    <div class='animation'>
+      <img src={% static animation.imageDir %} alt="icon-{{animation.name}}"/>
+      <p>{{animation.name}}</p>
+    </div>
+    {% endfor %}
   </div>
 </div>
 {% endblock content %}

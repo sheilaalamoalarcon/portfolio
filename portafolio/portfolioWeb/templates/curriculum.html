@@ -5,26 +5,52 @@
     <h1 class='title'>About me</h1>
     <div class="about-me__info">
       <img src={% static 'extra-images/about-me-image.jpeg' %} alt="about-me-info__image" />
-      <p class="about-me-info__text">
-        Mi nombre es Sheila Álamo, bienvenidos/as a mi portafolio web, 
-        aquí encontrarás mis trabajos más recientes. Soy una persona 
-        altamente creativa y con mucha energía, aunque a veces puedo ser 
-        algo tímida. Me gradué como técnico de imagen especializado en la
-        ilustración en la EADSGC, más tarde hice los siguientes cursos 
-        en la SPEGC: “Diseño UI/UX”, ”Programación Full-Stack”,
-        ”Especialización en ML” 
-      </p>
+      <p class="small-text">{{aboutMe}}</p>
     </div>
   </div>
-  <p class="title">Skills</p>
-  <div class="skills">
-    {% regroup skills by name as skills_list %}
-    {% for skill in skills %}
-    <div class="skills-element">
-      <p class="skills-name">{{skill.name}}</p>
-      <img class="skills-img" src={% static skill.imageDir %} alt="icon-{{skill}}"/>
-      <p class="skills-rating">{{skill.rating}}</p>
-    </div>  
-    {% endfor %}
-</div>
+  <p class="title">Soft Skills</p>
+  <div>
+    <div class='soft-skills'>
+      {% regroup aptitudes by name as aptitudes_list %}
+      {% for aptitude in aptitudes %}
+      {% if aptitude.type == 'idioms'  %}
+      <div>
+        <p class='small-text'>{{aptitude.name}}</p>
+      </div>
+      {% else %}
+      <div>
+        <p class='small-text'>{{aptitude.name}}</p>
+      </div>  
+      {% endif %}
+      {% endfor %}
+    </div>
+    <p class="title">Hard Skills</p>
+    <div class="hard-skills">
+      {% regroup skills by name as skills_list %}
+      {% for skill in skills %}
+      <span class="element">
+        <p class="small-text">{{skill.name}}</p>
+        <img src={% static skill.imageDir %} alt="icon-{{skill}}"/>
+        <p class="small-text">{{skill.rating}}</p>
+      </span>
+      {% endfor %}
+    </div>
+  </div>
+  <div class='education-experience'>
+    <div>
+      <p class="title">Education</p>
+      {% regroup studies by name as studies_list %}
+      {% for study in studies %}
+      <p class='small-text'>{{study.name}} at {{study.place}} on {{study.endDate}}</p>
+      {% endfor %}
+    </div>
+    <div>
+      <p class="title">Experience</p>
+      {% regroup experiences by name as experiences_list %}
+      {% for experience in experiences %}
+      <p class='small-text'>{{experience.name}} for {{experience.company}} on {{experience.endDate}}</p>
+      {% endfor %}
+    </div>
+  </div>
+    
   {% endblock content %}

@@ -11,19 +11,19 @@
     <title>Sheila Álamo Portfolio</title>
   </head>
   <body>
+    <script src={% static 'scripts/index.js' %}/></script>
     <div class='container'>
-      {% block header %}
       <div class="header" id='top'>
         <a href='/'>
             <img src={% static 'icons/logo-sheila.svg' %} alt="logo" />
-          </a>
+        </a>
           <div class="socials">
             {% regroup socials by link as socials_link %}
             {% for social in socials %}
               <a href={{social.link}}>
                 <img class="icon" src={% static social.imageDir %} alt='socials-icons' />
-            {% endfor %}
               </a>
+            {% endfor %}
           </div>
       </div>
       <div class="pages">
@@ -33,31 +33,29 @@
             {{page.name}}
         {% endfor %}
           </a>
-        </div>
-        {% endblock header %}
+      </div>
       {% block content%}
-
-      <h1 class='title'> My Works </h1>
+      <h1 class='page-title'>My Works</h1>
       <div>
         <p class="title">UI-Design</p>
         {% regroup artworks by title as artworks_list %}
         {% for artwork in artworks %}
-        <div class='artwork'>
+        <div>
           <a href={{artwork.path}} class="artwork-name">{{artwork.title}}</a>
           <div class="artwork-images">
             <img class="big-image" src={% static artwork.firstImg %} alt='firstImg'/>
-            <div class='artwork-images-column'>
+            <div class='artwork-column'>
               <img class="small-image" src={% static artwork.secondImg %} alt='secondImg' />
               <img class="small-image" src={% static artwork.thirdImg %} alt='thirdImg' />
             </div>
           </div>
+          <p class='small-text'>{{artwork.description}}</p>
         </div>
         {% endfor %}
       </div>
     </div>
     {% endblock content %}
-    <script src={% static 'scripts/index.js' %}/></script>
-    <button type="button" onClick='goUp' class="up-button">
+    <button type="button" onclick='goUp' class="up-button">
       <img  class="icon" src={% static 'icons/up-icon.svg' %} alt="up-icon" />
     </button>
   </body>
