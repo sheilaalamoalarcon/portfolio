@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'icons/favicon.svg' %}">
-    <link rel="stylesheet" href="{% static 'styles/base.css' %}"/>
+    <link rel="stylesheet" href="{% static 'base.css' %}"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -11,37 +11,38 @@
     <title>Sheila Álamo Portfolio</title>
   </head>
   <body>
-    <script src={% static 'scripts/index.js' %}/></script>
-    <div class='container'>
-      <div class="header" id='top'>
+    <div class="header">
+      <div class="header__top-part">
         <a href='/'>
-            <img src={% static 'icons/logo-sheila.svg' %} alt="logo" />
+            <img src={% static 'icons/logo-sheila.svg' %} class="logo" alt="logo" />
         </a>
-          <div class="socials">
-            {% regroup socials by link as socials_link %}
-            {% for social in socials %}
-              <a href={{social.link}}>
-                <img class="icon" src={% static social.imageDir %} alt='socials-icons' />
-              </a>
-            {% endfor %}
-          </div>
+        <div class="socials">
+          {% regroup socials by link as socials_link %}
+          {% for social in socials %}
+            <a href={{social.link}}>
+              <img class="icon" src={% static social.imageDir %} alt='socials-icons' />
+            </a>
+          {% endfor %}
+        </div>
       </div>
-      <div class="pages">
-        {% regroup pages by link as pages_list %}
-        {% for page in pages %}
-          <a class="icon"  href={{page.link}}>
-            {{page.name}}
-        {% endfor %}
-          </a>
-      </div>
-      {% block content%}
+        <div class="pages">
+          {% regroup pages by link as pages_list %}
+          {% for page in pages %}
+            <a class="icon"  href={{page.link}}>
+              {{page.name}}
+            </a>
+          {% endfor %}
+        </div>
+    </div>
+    {% block content%}
+    <div class='container'>
       <h1 class='page-title'>My Works</h1>
-      <div>
         <p class="title">UI-Design</p>
         {% regroup artworks by title as artworks_list %}
         {% for artwork in artworks %}
-        <div>
+        <div class='artwork'>
           <a href={{artwork.path}} class="artwork-name">{{artwork.title}}</a>
+          <p class='small-text'>{{artwork.description}}</p>
           <div class="artwork-images">
             <img class="big-image" src={% static artwork.firstImg %} alt='firstImg'/>
             <div class='artwork-column'>
@@ -49,10 +50,8 @@
               <img class="small-image" src={% static artwork.thirdImg %} alt='thirdImg' />
             </div>
           </div>
-          <p class='small-text'>{{artwork.description}}</p>
         </div>
         {% endfor %}
-      </div>
     </div>
     {% endblock content %}
     <button type="button" onclick='goUp' class="up-button">

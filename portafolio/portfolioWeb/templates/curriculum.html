@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% load static %}
 {% block content %}
-<div>
+<div class='container'>
   <div class="about-me">
     <h1 class='title'>About me</h1>
     <div class="about-me__info">
@@ -36,7 +36,7 @@
       {% endfor %}
     </div>
   </div>
-  <div class='education-experience'>
+  <div class='education'>
     <div>
       <p class="title">Education</p>
       {% regroup studies by name as studies_list %}
@@ -44,7 +44,7 @@
       <p class='small-text'>{{study.name}} at {{study.place}} on {{study.endDate}}</p>
       {% endfor %}
     </div>
-    <div>
+    <div class='experience'>
       <p class="title">Experience</p>
       {% regroup experiences by name as experiences_list %}
       {% for experience in experiences %}
