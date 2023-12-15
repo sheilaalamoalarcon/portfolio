@@ -1,0 +1,65 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+.headerIcons {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+}
+.curriculum {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(50%, auto));
+  max-width: 100%;
+  width: var(--max-width);
+}
+.nameAndWorkTitleWrap {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.workTitle {
+  font-weight: bold;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 6rem;
+  min-height: 100vh;
+}
+
+.rowWrap {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(50%, auto));
+  max-width: 50%;
+  width: var(--max-width);
+}
+.sectionBody {
+  text-align: justify;
+  width: 50%;
+}
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) {
+  .grid {
+    grid-template-columns: repeat(2, 50%);
+  }
+}
