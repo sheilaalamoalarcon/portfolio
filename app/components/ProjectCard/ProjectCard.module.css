@@ -1,0 +1,10 @@
+.sectionBody {
+  text-align: justify;
+  width: 50%;
+}
+.rowWrap {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}

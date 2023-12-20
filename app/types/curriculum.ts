@@ -15,6 +15,7 @@ export interface Project {
   body: string;
   stack: string;
   role: string;
+  webURL: string;
 }
 export interface List {
   title: string;

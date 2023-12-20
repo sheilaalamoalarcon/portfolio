@@ -14,7 +14,7 @@ function SvgIcon({ width, height, viewBox, path }: SVGIconProps) {
       viewBox={viewBox}
       fill="none"
     >
-      <path d={path} fill="black" />
+      <path d={path} fill="#860081" />
     </svg>
   );
 }

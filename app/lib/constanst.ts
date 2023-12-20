@@ -34,18 +34,23 @@ export const allProjects: Project[] = [
     body: "This mobile app fosters a dog-friendly community by enabling access to pet-friendly locations without breed or size discrimination. It encourages responsible pet ownership and offers behavior training for dogs, creating a welcoming environment for all canine companions.",
     stack: "React Native/Expo/Native",
     role: "Mobile developer",
+    webURL:
+      "https://play.google.com/store/apps/details?id=com.amysmascotas.appmypets&hl=es&gl=US",
   },
   {
     title: "MNNDZ L@b",
     body: "The app for IES Menéndez, available on Android and iOS, is designed to streamline class and event organization and provide updates on important activities such as exams and excursions. It facilitates better communication between teachers and parents, offering insights into student perspectives and enabling direct messaging for enhanced interaction and monitoring.",
     stack: "React Native/Expo",
     role: "Mobile developer",
+    webURL:
+      "https://www.google.es/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwisrO6osJKDAxWQaqQEHZCrBVMQFnoECA4QAQ&url=http%3A%2F%2Fiesramonmenendezpidal.com%2F&usg=AOvVaw1Lzs8QXp811e9eujiFD-vU&opi=89978449",
   },
   {
     title: "Guanxe",
     body: "Online shopping platform in the Canary Islands, offering a diverse range of products with free shipping. It includes categories like shoes, clothing, baby items, health products, electronics, and more, catering to varied customer needs and ensuring a convenient shopping experience.",
     stack: "React Native/Expo/Native",
     role: "Mobile developer",
+    webURL: "https://www.guanxeapp.com",
   },
 ];
 export const workExperienceList: List = {

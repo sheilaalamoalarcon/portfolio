@@ -57,6 +57,9 @@
   text-align: justify;
   width: 50%;
 }
+.subtitle {
+  color: #999;
+}
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
